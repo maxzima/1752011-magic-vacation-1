@@ -239,7 +239,6 @@
   a {
     position: relative;
     display: block;
-    overflow: hidden;
     color: inherit;
     padding: 0 0.5em 0.5em;
 
@@ -250,23 +249,25 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      display: block;
-      left: -100%;
-      transform: translateX(0);
-      transition: transform .1s ease-in-out;
+      display: none;
+      left: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {
+        left: 0;
+        right: 0;
         background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
+        left: 0;
+        right: 0;
         background-color: $c-dark;
       }
     }
 
     &.active {
       &::after {
-        transform: translateX(100%);
+        display: block;
       }
     }
 
@@ -278,7 +279,6 @@
       &::after {
         opacity: 1;
         background-color: $c-purple;
-        transform: translateX(100%);
       }
     }
   }
